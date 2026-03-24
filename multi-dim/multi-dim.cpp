@@ -185,7 +185,6 @@ void rysuj(const std::vector<std::vector<double>>& pairs, std::string name){
 
 int main(){
 
-    // ZADANIE 1.
     int N_normalny = pow(10,4);
     std::vector<std::vector<double>> Normalny_2D;
     Normalny_2D.reserve(N_normalny);
@@ -194,7 +193,6 @@ int main(){
     }
     rysuj(Normalny_2D, "rozklad_normalny_N(0,1)");
 
-    // ZADANIE 2.
     int N_sferycznie_konturowany = pow(10,4);
     std::vector<std::vector<double>> SK_2D;
     SK_2D.reserve(N_sferycznie_konturowany);
@@ -203,7 +201,6 @@ int main(){
     }
     rysuj(SK_2D, "rozklad_sferycznie_konturowany");
 
-    // ZADANIE 3.
     double alpha = cst::pi/(double)4.0;
     transform(create_R(-alpha), SK_2D, 1.0, 1.0, 1.0, 0.2, 0.0, 0.0);
     rysuj(SK_2D, "rozklad_jednorodny_w_kole");
@@ -215,7 +212,6 @@ int main(){
     double cr = corr(SK_2D);
     std::cout<<"wsp. korelacji: "<<cr<<"\n";
 
-    // ZADANIE 3.
     std::cout<<"\n";
     transform(create_R(-alpha), Normalny_2D, 1.0, 1.0, 1.0, 0.2, 0.0, 0.0);
     rysuj(Normalny_2D, "rozklad_normalny");

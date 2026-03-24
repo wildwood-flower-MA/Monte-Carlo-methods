@@ -130,8 +130,7 @@ int main(){
     double R_B = std::sqrt(2.0)*R_A;
     double x0_A = 1.0; double y0_A = 0.0;
     double x0_B = 0.0; double y0_B = 0.0;
-    
-    // ZADANIE 1
+
     // liczba punktów losowanych w każdym z kół
     int N = pow(10.0, 4.0);
 
@@ -143,7 +142,6 @@ int main(){
     }
     plot_circles({K_A, K_B});
     
-    // ZADANIE 2
     N = pow(10.0, 6.0);
 
     // a)

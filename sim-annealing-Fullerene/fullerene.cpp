@@ -324,24 +324,19 @@ int main(){
     pm.it_max = 100000;
     pm.version = 0;
 
-    // ZADANIE 1.
     float vRj_constant = -std::sqrt(2.0*pm.S)*pm.lambda;
     float vAj_constant = -std::sqrt(2.0/pm.S)*pm.lambda;
 
-    // Zadanie 1.
-    matrix atoms_positions_c60;
-    std::ifstream input_file("atoms_positions_c60.dat");
+    matrix c60;
+    std::ifstream input_file("c60.dat");
     float x, y, z;
     while(input_file >> x >> y >> z){
-        atoms_positions_c60.push_back({x, y, z});
+        c60.push_back({x, y, z});
     }
     input_file.close();
-    float E_total = V_tot(atoms_positions_c60, pm, vRj_constant, vAj_constant);
+    float E_total = V_tot(c60, pm, vRj_constant, vAj_constant);
     std::cout << E_total << std::endl;
 
-    
-    /*
-    // Zadanie 2. // ZMIENIĆ WARUNEK PRZY LICZENIU B
     pm.version = 0;
     pm.file_energy = "zad2_energy.dat";
     pm.file_vectors = "zad2_vectors.dat";
@@ -370,7 +365,7 @@ int main(){
     std::cout << "\n Runtime zad. 3.: " << elapsed_2.count() << " s" << std::endl;
     
 
-    // ZADANIE 4.
+    
     pm.version = 1;
     pm.r_0 = 2.50;
     pm.file_energy = "zad4_energy.dat";
@@ -384,14 +379,13 @@ int main(){
     auto end_3 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed_3 = end_3 - start_3;
     std::cout << "\n Runtime zad. 4.: " << elapsed_3.count() << " s" << std::endl;
-    */
+    
     pm.version = 1;
     pm.r_0 = 2.50;
 
-    // ZAD 6.1
-    pm.beta_max = 50.0; // ZMIENIŁEM -zad6
-    pm.beta_min = 0.5; // ZMIENIŁEM -zad6
-    pm.p = 1.5; // ZMIENIŁEM -zad6
+    pm.beta_max = 50.0; // ZMIENIŁEM
+    pm.beta_min = 0.5; // ZMIENIŁEM
+    pm.p = 1.5; // ZMIENIŁEM
 
     pm.file_energy = "zad6_1_energy.dat";
     pm.file_vectors = "zad6_1_vectors.dat";
@@ -404,12 +398,9 @@ int main(){
     auto end_6_1 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed_6_1 = end_6_1 - start_6_1;
     std::cout << "\n Runtime zad. 6.1.: " << elapsed_6_1.count() << " s" << std::endl;
-
-
-    // ZAD 6.2
-    pm.beta_max = 25.0; // ZMIENIŁEM -zad6
-    pm.beta_min = 0.2; // ZMIENIŁEM -zad6
-    pm.p = 1; // ZMIENIŁEM -zad6
+    pm.beta_max = 25.0; // ZMIENIŁEM
+    pm.beta_min = 0.2; // ZMIENIŁEM
+    pm.p = 1; // ZMIENIŁEM
 
     pm.file_energy = "zad6_2_energy.dat";
     pm.file_vectors = "zad6_2_vectors.dat";
